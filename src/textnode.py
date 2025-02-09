@@ -16,11 +16,14 @@ class TextNode:
         self.alt = alt
 
     def __eq__(self, other):
+        if not isinstance(other, TextNode):
+            return False
         return (
             self.text == other.text
             and self.text_type == other.text_type
             and self.url == other.url
+            and self.alt == other.alt
         )
 
     def __repr__(self):
-        return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
+        return f"TextNode(text={self.text}, text_type={self.text_type}, url={self.url}, alt={self.alt})"
